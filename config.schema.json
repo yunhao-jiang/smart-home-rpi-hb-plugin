@@ -1,16 +1,22 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "Raspberry Pi Smart Home",
   "pluginType": "platform",
   "singular": true,
   "strictValidation": false,
   "schema": {
     "type": "object",
     "properties": {
-      "name": {
-        "title": "Name",
+      "IP Address": {
+        "title": "IP Address",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "127.0.0.1"
+      },
+      "Port": {
+        "title": "Port",
+        "type": "number",
+        "required": true,
+        "default": 8080
       }
     }
   }

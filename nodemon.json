@@ -1,12 +1,13 @@
 {
-  "watch": [
-    "src"
-  ],
+  "watch": ["src"],
   "ext": "ts",
   "ignore": [],
-  "exec": "tsc && homebridge -U ./test/hbConfig -D",
+  "exec": "sh -c 'until tsc && homebridge -U ./test/hbConfig -D; do echo Restarting...; sleep 2; done'",
   "signal": "SIGTERM",
   "env": {
     "NODE_OPTIONS": "--trace-warnings"
-  }
+  },
+  "restartable": "rs",
+  "delay": "2000",
+  "legacy-watch": false
 }

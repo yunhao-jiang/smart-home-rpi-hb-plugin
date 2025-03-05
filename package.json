@@ -33,6 +33,7 @@
     "watch": "npm run build && npm link && nodemon"
   },
   "dependencies": {
+    "axios": "^1.8.1",
     "homebridge-config-ui-x": "^4.71.2",
     "homebridge-lib": "^7.1.4"
   },

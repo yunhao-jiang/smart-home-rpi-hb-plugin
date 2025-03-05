@@ -3,7 +3,11 @@
         "name": "Homebridge",
         "username": "AA:BB:CC:DD:EE:FF",
         "port": 51826,
-        "pin": "031-45-154"
+        "pin": "031-45-154",
+        "advertiser": "avahi",
+        "bind": [
+            "wlan0"
+        ]
     },
     "description": "HomeBridge HTTP Status Control",
     "plugins": [
@@ -24,7 +28,7 @@
         },
         {
             "IP Address": "127.0.0.1",
-            "Port": 8089,
+            "Port": 5000,
             "platform": "Raspberry Pi Smart Home"
         }
     ],

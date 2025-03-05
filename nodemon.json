@@ -2,7 +2,7 @@
   "watch": ["src"],
   "ext": "ts",
   "ignore": [],
-  "exec": "sh -c 'until tsc && homebridge -U ./test/hbConfig -D; do echo Restarting...; sleep 2; done'",
+  "exec": "sh -c 'until tsc && rm ./test/hbConfig/accessories/cachedAccessories && homebridge -I -U ./test/hbConfig -D ; do echo Restarting...; sleep 2; done'",
   "signal": "SIGTERM",
   "env": {
     "NODE_OPTIONS": "--trace-warnings"

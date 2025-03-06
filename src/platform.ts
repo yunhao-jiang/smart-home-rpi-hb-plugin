@@ -123,6 +123,10 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
 
     // loop over the discovered devices and register each one if it has not already been registered
     for (const device of devices) {
+      if (device.displayName === "Back"){
+        continue;
+      }
+
       // generate a unique id for the accessory this should be generated from
       // something globally unique, but constant, for example, the device serial
       // number or MAC address
@@ -187,9 +191,13 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
       
         if (device.type === this.api.hap.Service.Lightbulb) {
           service.getCharacteristic(this.api.hap.Characteristic.On)
-            .onSet((value) => {
-              this.log.info('Set Characteristic On ->', value);
-              // api request to turn on/off the light
+            .onSet(async (value) => {
+              try {
+                const response = await axios.post(`http://${IP}:${PORT}/api_post?id=${device.id}`);
+              }
+              catch (error) {
+                this.log.error('Error:', error);
+              }
             })
             .onGet(() => {
               // api request to get the status of the light);
